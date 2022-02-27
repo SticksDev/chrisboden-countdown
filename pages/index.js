@@ -5,13 +5,14 @@ import CurrencyFormat from 'react-currency-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
-import '@fortawesome/fontawesome-svg-core/styles.css' // Import the CSS
+import '@fortawesome/fontawesome-svg-core/styles.css' 
 
 export default function Home() {
   let donateGoalMonthly = 1000;
-  let currentMontlyDonations = 1018;
+  let currentMonthlyDonations = 1018;
   let totalRaised = 0;
   let patreonTtl = 1018;
+  let lastUpdatedOn = new Date("2022-02-27T02:14:32.860Z");
   return (
     <div className={styles.container}>
       <Head>
@@ -32,16 +33,16 @@ export default function Home() {
         </Text>
         <Spacer /> <Spacer />
         <Text h2 size={35}> Donation goals </Text>
-        <Text h4> Please don't feel obliged to donate; but if you can, check the links below (every little bit helps!) </Text>
+        <Text h4> Please don&apos;t feel obliged to donate; but if you can, check the links below (every little bit helps!) </Text>
         <Grid.Container gap={4} justify="center" >
           <Grid xs={4}>
             <Card color={"gradient"} hoverable>
               <Card.Header>
-                Montly Donation Goal
+                Monthly Donation Goal
               </Card.Header>
               <Card.Body css={{display: "block"}}>
-                This goal is <strong>{Math.floor((100 * currentMontlyDonations) / donateGoalMonthly)}</strong> percent complete.
-                <br></br> With a total of <strong><CurrencyFormat value={currentMontlyDonations} displayType={'text'} thousandSeparator={true} prefix={"$"}/></strong> USD this month. <br></br>
+                This goal is <strong>{Math.floor((100 * currentMonthlyDonations) / donateGoalMonthly)}</strong> percent complete.
+                <br></br> With a total of <strong><CurrencyFormat value={currentMonthlyDonations} displayType={'text'} thousandSeparator={true} prefix={"$"}/></strong> USD this month. <br></br>
                 With a total of <strong><CurrencyFormat value={patreonTtl} displayType={'text'} thousandSeparator={true} prefix={"$"}/></strong> from patreon (You guys rock!).
               </Card.Body>
             </Card>
@@ -62,7 +63,7 @@ export default function Home() {
         <Collapse.Group>
           <Collapse title="Can I send chris stuff?">
             <Text p1 size={20}>
-              You can! Be careful though, this is <strong>*federal*</strong> prison, so they <strong>don't joke around</strong> and <strong>don't understand your humor</strong> and or intentions.
+              You can! Be careful though, this is <strong>*federal*</strong> prison, so they <strong>don&apos;t joke around</strong> and <strong>don&apos;t understand your humor</strong> and or intentions.
               <br></br><br></br>Ask mouse before sending something.
             </Text>
           </Collapse>
@@ -78,13 +79,14 @@ export default function Home() {
           </Collapse>
           <Collapse title="When will chris go in/out?">
             <Text p1 size={20}>
-              We don't know when chris will go in (they are finding a place), he hopes to be out by march of 2024.
+              We don&apos;t know when chris will go in (they are finding a place), he hopes to be out by march of 2024.
             </Text>
           </Collapse>
         </Collapse.Group>
         <footer>
           <Spacer />
-          Site created for Chris Boden | Created with <FontAwesomeIcon icon={faHeart} size={"sm"}/> by Tanner in Next.js | <Link href="https://discord.com/invite/zFpSe7t" icon block><FontAwesomeIcon icon={faDiscord} size={"sm"}/></Link>
+          Site created for Chris Boden | Created with <FontAwesomeIcon icon={faHeart} size={"sm"}/> by Tanner in Next.js |<Link href="https://discord.com/invite/zFpSe7t" icon block><FontAwesomeIcon icon={faDiscord} size={"sm"}/></Link>
+          <br></br> Site last updated on: <strong>{lastUpdatedOn.toDateString()} - {lastUpdatedOn.getHours()}:{lastUpdatedOn.getMinutes()} {lastUpdatedOn.getHours() >= 12 ? "PM" : "AM"}</strong> by <strong>Tanner</strong>
         </footer>
       </main>
     </div>
